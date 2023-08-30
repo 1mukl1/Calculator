@@ -5,8 +5,10 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         try{
-            File file = new File("путь к файлу");
+            File file = new File("Путь к файлу для чтения");
             Scanner sc = new Scanner(file);
+            File result = new File("Путь к файлу для запсиси результата");
+            FileWriter writer = new FileWriter(result);
             String str = sc.nextLine();
             double res = 0;
             String[] str1 = str.split(" ");
@@ -33,6 +35,9 @@ public class Main {
                 }
             }
             System.out.println(res);
+            writer.write(String.valueOf(res));
+            sc.close();
+            writer.close();
         }
         catch (NumberFormatException nf){
             System.out.println("Error! Not number");
